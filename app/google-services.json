@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "154270261339",
+    "project_id": "djmcpoe-28812",
+    "storage_bucket": "djmcpoe-28812.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154270261339:android:b0f8769b2f4b5d4a3fdf7e",
+        "android_client_info": {
+          "package_name": "vcmsa.projects.djmc_poe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjTUcP9DrxuYjWHgEVaxqsgfAAJ0ScU0M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
