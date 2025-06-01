@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back" />
+
+    <Button
+        android:id="@+id/buttonPickStartDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick Start Date" />
+
+    <Button
+        android:id="@+id/buttonPickEndDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick End Date" />
+
+    <TextView
+        android:id="@+id/textSelectedRange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No range selected"
+        android:padding="8dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTotals"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

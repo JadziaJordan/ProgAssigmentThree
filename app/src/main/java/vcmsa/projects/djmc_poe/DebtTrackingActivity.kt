@@ -16,8 +16,14 @@ class DebtTrackingActivity : AppCompatActivity() {
 
         val categoryButton = findViewById<Button>(R.id.categoriesBtn)
         val detailButton = findViewById<Button>(R.id.detailBtn)
-        val expenseButton = findViewById<Button>(R.id.expenseButton)
-        val paymentCalculator = findViewById<Button>(R.id.paymentCalculator)
+        val backButton = findViewById<Button>(R.id.backBtn)
+
+
+        backButton.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         categoryButton.setOnClickListener {
             val intent = Intent(this, DebtCategoryActivity::class.java)
@@ -30,15 +36,6 @@ class DebtTrackingActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
-        expenseButton.setOnClickListener {
-            val intent = Intent(this, ViewAllExpenses::class.java)
-            startActivity(intent)
-        }
-
-        paymentCalculator.setOnClickListener {
-            val intent = Intent(this, PaymentCalculatorActivity::class.java)
-            startActivity(intent)
-        }
     }
 }
+

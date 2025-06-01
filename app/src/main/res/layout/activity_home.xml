@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="#F5F5F5">
+
+    <TextView
+        android:id="@+id/homePageText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" DJMC Home Page"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/buttonViewExpenses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Expenses"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/buttonViewCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Categories"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/buttonDebtTracking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Debt Tracking" />
+</LinearLayout>
