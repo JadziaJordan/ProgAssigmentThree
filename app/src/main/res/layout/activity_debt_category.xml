@@ -34,6 +34,15 @@
                 android:textStyle="bold"
                 />
 
+            <TextView
+                android:id="@+id/subcontextText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Here you can save different debt category names, this allows us to categorize your debts."
+                android:textAlignment="center"
+                android:textSize="15sp"
+                />
+
             <!-- Category Input -->
             <EditText
                 android:id="@+id/etDebtCategoryname"

@@ -13,9 +13,17 @@
         android:theme="@style/Theme.DJMC_POE"
         tools:targetApi="31">
         <activity
-            android:name=".PaymentCalculatorActivity"
+            android:name=".ViewDebtActivity"
             android:exported="false" />
-        <!-- Your existing activities -->
+        <activity
+            android:name=".PaymentHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentEntryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentCalculatorActivity"
+            android:exported="false" /> <!-- Your existing activities -->
         <activity android:name=".DisplayCategoryTotals" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".AddCategory" />

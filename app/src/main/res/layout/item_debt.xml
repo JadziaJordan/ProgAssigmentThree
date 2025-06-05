@@ -1,0 +1,70 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:padding="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <TextView
+        android:hint="Debt Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvDebtName"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:hint="Debt Amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvDebtAmount"/>
+
+    <TextView
+        android:hint="Interest Percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvInterestAmount"/>
+
+    <TextView
+        android:hint="Months"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvMonths"/>
+
+    <TextView
+        android:hint="Category Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvCategory"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Total Debt Amount"
+        android:id="@+id/tvTotal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/PaymentEntrybtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Entry"
+            android:backgroundTint="@color/green"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:backgroundTint="@color/red"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+</LinearLayout>

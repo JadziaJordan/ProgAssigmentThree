@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
 
-
-    <!-- Bright orange colors -->
+    <!-- Bright orange colors -->Add commentMore actions
     <color name="bright_orange">#FFA500</color> <!-- Standard bright orange -->
     <color name="deep_orange">#FF6F00</color> <!-- Deeper orange for accents -->
     <color name="light_orange">#FFCC80</color> <!-- Softer/lighter orange -->
@@ -13,5 +10,6 @@
     <color name="grey">#E0E0E0</color>
     <color name="red">#FF6347</color>
     <color name="yellow">#FFC300</color>
-
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
 </resources>
