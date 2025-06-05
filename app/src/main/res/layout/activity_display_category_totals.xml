@@ -1,38 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:padding="16dp" >
 
-    <Button
-        android:id="@+id/buttonBack"
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Back" />
+        android:text="Category Totals"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#212121"
+        android:gravity="center"
+        android:paddingBottom="12dp"/>
 
-    <Button
-        android:id="@+id/buttonPickStartDate"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Pick Start Date" />
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="8dp">
 
-    <Button
-        android:id="@+id/buttonPickEndDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pick End Date" />
+        <Button
+            android:id="@+id/buttonPickStartDate"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:text="Start Date"
+            android:layout_marginEnd="4dp"/>
+
+        <Button
+            android:id="@+id/buttonPickEndDate"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/blue"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:text="End Date"
+            android:layout_marginStart="4dp"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textSelectedRange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="No range selected"
-        android:padding="8dp" />
+        android:textColor="#757575"
+        android:padding="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#EEEEEE"
+        android:gravity="center"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewTotals"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingTop="8dp" />
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:text="Back"
+        android:layout_marginTop="12dp"/>
 </LinearLayout>
