@@ -3,72 +3,165 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".ViewAllExpenses">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:padding="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!-- Scrollable Content -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2"
-            android:layout_marginBottom="8dp">
+            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/etDateFrom"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+            <!-- Date Filters -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="From Date (YYYY-MM-DD)"
-                android:focusable="false"
-                android:clickable="true" />
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="8dp">
 
-            <EditText
-                android:id="@+id/etDateTo"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                <EditText
+                    android:id="@+id/etDateFrom"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="From Date (YYYY-MM-DD)"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:backgroundTint="#000000"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000" />
+
+                <EditText
+                    android:id="@+id/etDateTo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:hint="To Date (YYYY-MM-DD)"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:backgroundTint="#000000"
+                    android:textColor="#000000"
+                    android:textColorHint="#000000" />
+            </LinearLayout>
+
+            <!-- Buttons -->
+            <Button
+                android:id="@+id/btnFilterRange"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="To Date (YYYY-MM-DD)"
-                android:layout_marginStart="8dp"
-                android:focusable="false"
-                android:clickable="true" />
+                android:text="Filter by Date Range"
+                android:backgroundTint="@color/blue"
+                android:textColor="@color/black"
+                android:minHeight="48dp"
+                android:paddingVertical="12dp" />
+
+            <Button
+                android:id="@+id/btnClearFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Clear Filter"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/blue"
+                android:textColor="@color/black"
+                android:minHeight="48dp"
+                android:paddingVertical="12dp" />
+
+            <Button
+                android:id="@+id/btnAddExpense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Expense"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/blue"
+                android:textColor="@color/black"
+                android:minHeight="48dp"
+                android:paddingVertical="12dp" />
+
+            <!-- Expenses List -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewExpenses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp" />
+
         </LinearLayout>
+    </ScrollView>
 
-        <Button
-            android:id="@+id/btnFilterRange"
-            android:layout_width="match_parent"
+    <!-- Bottom Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/blue"
+        android:elevation="8dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:weightSum="4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/GoalsNav"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Filter by Date Range" />
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:text="Goal"
+            android:textColor="@color/black"
+            app:icon="@drawable/goal"
+            app:iconGravity="top"
+            app:iconPadding="4dp" />
 
-        <Button
-            android:id="@+id/btnClearFilter"
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/FinancialNav"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Clear Filter"
-            android:layout_marginTop="8dp" />
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:text="Finance"
+            android:textColor="@color/black"
+            app:icon="@drawable/budget"
+            app:iconGravity="top"
+            app:iconPadding="4dp" />
 
-
-        <Button
-            android:id="@+id/btnAddExpense"
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/DebtNav"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Add Expense"
-            android:layout_marginTop="8dp" />
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:text="Category"
+            android:textColor="@color/black"
+            app:icon="@drawable/money"
+            app:iconGravity="top"
+            app:iconPadding="4dp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewExpenses"
-            android:layout_width="match_parent"
-            android:layout_height="495dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1" />
-
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/GraphesNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:text="Graphes"
+            android:textColor="@color/black"
+            app:icon="@drawable/img"
+            app:iconGravity="top"
+            app:iconPadding="4dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -58,7 +58,7 @@ class AddExpense : AppCompatActivity() {
         btnSelectImage = findViewById(R.id.btnSelectImage)
         btnCaptureImage = findViewById(R.id.btnCaptureImage)
         btnSave = findViewById(R.id.buttonsave)
-        btnBack = findViewById(R.id.BackToReport)
+
         spinnerCategory = findViewById(R.id.spinnerCategory)
         loadCategories()
 
