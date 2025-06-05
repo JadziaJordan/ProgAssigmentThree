@@ -35,6 +35,9 @@
             android:name=".ViewAllExpenses"
             android:exported="false" />
         <activity
+            android:name=".ViewAllGoalsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ExpenseAdapter"
             android:exported="false" />
         <activity

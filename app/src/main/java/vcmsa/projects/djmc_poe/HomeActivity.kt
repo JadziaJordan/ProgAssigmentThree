@@ -14,7 +14,7 @@ class HomeActivity : AppCompatActivity() {
         val btnViewExpenses = findViewById<Button>(R.id.buttonViewExpenses)
         val btnDebtTracking = findViewById<Button>(R.id.buttonDebtTracking)
         val btnViewCategories = findViewById<Button>(R.id.buttonViewCategories)
-        val btnAddGoals = findViewById<Button>(R.id.buttonAddGoals)
+        val btnAddGoals = findViewById<Button>(R.id.buttonViewGoals)
 
 
         btnViewExpenses.setOnClickListener {
@@ -30,7 +30,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         btnAddGoals.setOnClickListener {
-            startActivity(Intent(this, AddGoals::class.java))
+            startActivity(Intent(this, ViewAllGoalsActivity::class.java))
         }
     }
 
