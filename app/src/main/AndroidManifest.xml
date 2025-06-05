@@ -13,6 +13,9 @@
         android:theme="@style/Theme.DJMC_POE"
         tools:targetApi="31">
         <activity
+            android:name=".AddGoals"
+            android:exported="false" />
+        <activity
             android:name=".ViewDebtActivity"
             android:exported="false" />
         <activity
