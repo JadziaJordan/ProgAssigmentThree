@@ -1,5 +1,6 @@
 package vcmsa.projects.djmc_poe
 
 data class Category(
-    var name: String = ""
+    var name: String = "",
+    val description: String = ""
 )
