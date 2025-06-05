@@ -6,6 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="@drawable/background"
     tools:context=".DebtDetailsActivity">
 
     <LinearLayout
@@ -65,7 +67,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Create a Debt Category Name"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/blue"/>
 
                     <Button
                         android:id="@+id/detailBtn"
@@ -73,7 +76,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Save a Debt"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/blue"/>
 
                     <Button
                         android:id="@+id/viewDebtBtn"
@@ -81,13 +85,15 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="View Debts"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/blue"/>
 
                     <Button
                         android:id="@+id/paymentHistoryBtn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="View Payment History" />
+                        android:text="View Payment History"
+                        android:backgroundTint="@color/blue"/>
 
                 </LinearLayout>
 

@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="@drawable/background"
     tools:context=".DebtDetailsActivity">
 
     <LinearLayout
@@ -137,7 +139,8 @@
                         android:layout_height="60dp"
                         android:layout_weight="1"
                         android:text="Back"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/blue"/>
 
                     <!-- Create Button -->
                     <Button
@@ -146,7 +149,8 @@
                         android:layout_height="60dp"
                         android:layout_weight="1"
                         android:text="Create"
-                        android:textColor="@color/white" />
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/blue"/>
 
                 </LinearLayout>
 
@@ -155,7 +159,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:text="Create Category Name"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/blue"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
