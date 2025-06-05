@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".AddExpense">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,13 +18,17 @@
             android:id="@+id/Expense"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:paddingVertical="12dp"
+            android:backgroundTint="#0F0E0E"
+            android:drawableTint="#050505"
             android:hint="Expense Title"
             android:inputType="text"
-            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            android:minHeight="48dp"
+            android:paddingVertical="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Amount -->
         <EditText
@@ -34,6 +39,8 @@
             android:paddingVertical="12dp"
             android:hint="Amount"
             android:inputType="numberDecimal"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
             app:layout_constraintTop_toBottomOf="@id/Expense"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,28 +51,35 @@
             android:id="@+id/Date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#050505"
+            android:focusable="false"
+            android:hint="Select Date and Time"
             android:minHeight="48dp"
             android:paddingVertical="12dp"
-            android:hint="Select Date and Time"
-            android:focusable="false"
-            app:layout_constraintTop_toBottomOf="@id/ExpenseAmount"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="12dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ExpenseAmount" />
 
         <!-- Description -->
         <EditText
             android:id="@+id/ExpenseDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:paddingVertical="12dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#050505"
             android:hint="Description"
             android:inputType="textMultiLine"
-            app:layout_constraintTop_toBottomOf="@id/Date"
-            app:layout_constraintStart_toStartOf="parent"
+            android:minHeight="48dp"
+            android:paddingVertical="12dp"
+            android:textColorLink="#000000"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="12dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Date" />
 
         <!-- Category Spinner -->
         <Spinner
@@ -84,12 +98,12 @@
             android:id="@+id/ExpenseImage"
             android:layout_width="0dp"
             android:layout_height="200dp"
+            android:layout_marginTop="12dp"
+            android:background="#6BFFFFFF"
             android:scaleType="centerCrop"
-            android:background="#EEE"
-            app:layout_constraintTop_toBottomOf="@id/spinnerCategory"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="12dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinnerCategory" />
 
         <!-- Select Image Button -->
         <Button
@@ -102,6 +116,7 @@
             app:layout_constraintTop_toBottomOf="@id/ExpenseImage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:backgroundTint="@color/blue"
             android:layout_marginTop="12dp" />
 
         <!-- Capture Image Button -->
@@ -115,6 +130,7 @@
             app:layout_constraintTop_toBottomOf="@id/btnSelectImage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:backgroundTint="@color/blue"
             android:layout_marginTop="8dp" />
 
         <!-- Save Button -->
@@ -128,6 +144,7 @@
             app:layout_constraintTop_toBottomOf="@id/btnCaptureImage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:backgroundTint="@color/blue"
             android:layout_marginTop="16dp" />
 
         <!-- Back Button -->
