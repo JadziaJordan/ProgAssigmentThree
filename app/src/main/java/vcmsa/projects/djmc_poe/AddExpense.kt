@@ -28,7 +28,8 @@ class AddExpense : AppCompatActivity() {
     private lateinit var expenseAmount: EditText
     private lateinit var expenseDate: EditText
     private lateinit var expenseDescription: EditText
-    private lateinit var expenseCategory: Spinner
+    private lateinit var spinnerCategory: Spinner
+    private val categoryList = mutableListOf<String>()
     private lateinit var expenseImage: ImageView
     private lateinit var btnSelectImage: Button
     private lateinit var btnCaptureImage: Button
@@ -53,17 +54,14 @@ class AddExpense : AppCompatActivity() {
         expenseAmount = findViewById(R.id.ExpenseAmount)
         expenseDate = findViewById(R.id.Date)
         expenseDescription = findViewById(R.id.ExpenseDescription)
-        expenseCategory = findViewById(R.id.ExpenseCategory)
         expenseImage = findViewById(R.id.ExpenseImage)
         btnSelectImage = findViewById(R.id.btnSelectImage)
         btnCaptureImage = findViewById(R.id.btnCaptureImage)
         btnSave = findViewById(R.id.buttonsave)
         btnBack = findViewById(R.id.BackToReport)
+        spinnerCategory = findViewById(R.id.spinnerCategory)
+        loadCategories()
 
-        val categories = listOf("Food", "Fuel", "Transport", "Other")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categories)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        expenseCategory.adapter = adapter
 
         btnSelectImage.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
@@ -108,12 +106,33 @@ class AddExpense : AppCompatActivity() {
         ).show()
     }
 
+    private fun loadCategories() {
+        val user = auth.currentUser ?: return
+        db.collection("users")
+            .document(user.uid)
+            .collection("categories")
+            .get()
+            .addOnSuccessListener { snapshot ->
+                categoryList.clear()
+                for (doc in snapshot) {
+                    val name = doc.getString("name")
+                    if (name != null) categoryList.add(name)
+                }
+                val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categoryList)
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerCategory.adapter = adapter
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Failed to load categories", Toast.LENGTH_SHORT).show()
+            }
+    }
+
     private fun saveExpense() {
         val title = expenseTitle.text.toString().trim()
         val amountText = expenseAmount.text.toString().trim()
         val date = expenseDate.text.toString().trim()
         val description = expenseDescription.text.toString().trim()
-        val category = expenseCategory.selectedItem.toString()
+        val category = spinnerCategory.selectedItem.toString()
 
         if (title.isEmpty() || amountText.isEmpty() || date.isEmpty() || description.isEmpty()) {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()

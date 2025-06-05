@@ -69,7 +69,7 @@
 
         <!-- Category Spinner -->
         <Spinner
-            android:id="@+id/ExpenseCategory"
+            android:id="@+id/spinnerCategory"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:minHeight="48dp"
@@ -86,7 +86,7 @@
             android:layout_height="200dp"
             android:scaleType="centerCrop"
             android:background="#EEE"
-            app:layout_constraintTop_toBottomOf="@id/ExpenseCategory"
+            app:layout_constraintTop_toBottomOf="@id/spinnerCategory"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="12dp" />
