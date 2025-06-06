@@ -21,7 +21,6 @@ class ViewAllCategories : AppCompatActivity() {
     private val documentIdList = ArrayList<String>()
 
     private lateinit var btnAddCategory: Button
-    private lateinit var btnBackHome: Button
     private lateinit var btnCategoryTotals: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +30,6 @@ class ViewAllCategories : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerViewCategories)
         btnAddCategory = findViewById(R.id.btnAddCategory)
         btnCategoryTotals = findViewById(R.id.btnCategoryTotals)
-        btnBackHome = findViewById(R.id.btnBackHome)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = CategoryAdapter(categoryList) { position -> showDeleteDialog(position) }
@@ -48,12 +46,32 @@ class ViewAllCategories : AppCompatActivity() {
             startActivity(Intent(this, DisplayCategoryTotals::class.java))
         }
 
-        btnBackHome.setOnClickListener {
-            startActivity(Intent(this, HomeActivity::class.java))
+
+        // Bottom Navigation
+        val goalsNav: Button = findViewById(R.id.GoalsNav)
+        val financialNav: Button = findViewById(R.id.FinancialNav)
+        val GraphesNav: Button = findViewById(R.id.GraphesNav)
+        val DebtNav: Button = findViewById(R.id.DebtNav)
+
+        goalsNav.setOnClickListener {
+            startActivity(Intent(this, ViewAllGoalsActivity::class.java))
         }
+
+        financialNav.setOnClickListener {
+            startActivity(Intent(this, ViewAllExpenses::class.java))
+        }
+
+        DebtNav.setOnClickListener {
+            startActivity(Intent(this, ViewAllCategories::class.java))
+        }
+
+        //GraphesNav.setOnClickListener {
+           // startActivity(Intent(this, GraphActivity::class.java))
+       // }
 
         loadCategories()
     }
+
 
     private fun loadCategories() {
         val user = auth.currentUser ?: run {

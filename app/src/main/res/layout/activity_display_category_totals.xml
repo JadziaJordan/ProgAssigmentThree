@@ -77,14 +77,6 @@
                 android:background="#EEEEEE"
                 android:gravity="center"/>
 
-            <Button
-                android:id="@+id/buttonBack"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/blue"
-                android:textColor="@android:color/white"
-                android:text="Back"
-                android:layout_marginTop="12dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

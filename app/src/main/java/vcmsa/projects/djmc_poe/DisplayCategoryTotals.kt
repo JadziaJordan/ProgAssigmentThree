@@ -16,7 +16,6 @@ class DisplayCategoryTotals : AppCompatActivity() {
 
     private lateinit var buttonPickStart: Button
     private lateinit var buttonPickEnd: Button
-    private lateinit var btnBack: Button
     private lateinit var textSelectedRange: TextView
     private lateinit var recyclerView: RecyclerView
 
@@ -46,7 +45,6 @@ class DisplayCategoryTotals : AppCompatActivity() {
         // View bindings
         buttonPickStart = findViewById(R.id.buttonPickStartDate)
         buttonPickEnd = findViewById(R.id.buttonPickEndDate)
-        btnBack = findViewById(R.id.buttonBack)
         textSelectedRange = findViewById(R.id.textSelectedRange)
         recyclerView = findViewById(R.id.recyclerViewTotals)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -56,10 +54,28 @@ class DisplayCategoryTotals : AppCompatActivity() {
         buttonPickEnd.setOnClickListener { pickDate(false) }
 
 
-        //navigation back to home
-        btnBack.setOnClickListener {
+
+        // Bottom Navigation
+        val goalsNav: Button = findViewById(R.id.GoalsNav)
+        val financialNav: Button = findViewById(R.id.FinancialNav)
+        val GraphesNav: Button = findViewById(R.id.GraphesNav)
+        val DebtNav: Button = findViewById(R.id.DebtNav)
+
+        goalsNav.setOnClickListener {
+            startActivity(Intent(this, ViewAllGoalsActivity::class.java))
+        }
+
+        financialNav.setOnClickListener {
+            startActivity(Intent(this, ViewAllExpenses::class.java))
+        }
+
+        DebtNav.setOnClickListener {
             startActivity(Intent(this, ViewAllCategories::class.java))
         }
+
+        //GraphesNav.setOnClickListener {
+           // startActivity(Intent(this, GraphActivity::class.java))
+        //}
 
     }
 
