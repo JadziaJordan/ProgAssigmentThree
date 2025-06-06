@@ -51,15 +51,6 @@
                     android:textStyle="bold"
                     />
 
-                <TextView
-                    android:id="@+id/subcontextText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="You can view you debts here!"
-                    android:textAlignment="center"
-                    android:textSize="15sp"
-                    />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -76,7 +67,7 @@
                         android:layout_weight="1"
                         android:text="Create a Debt Category Name"
                         android:textColor="@color/white"
-                        android:backgroundTint="@color/blue"/>
+                        android:backgroundTint="#90E0EF"/>
 
                     <Button
                         android:id="@+id/detailBtn"
@@ -85,7 +76,7 @@
                         android:layout_weight="1"
                         android:text="Save a Debt"
                         android:textColor="@color/white"
-                        android:backgroundTint="@color/blue"/>
+                        android:backgroundTint="#48CAE4"/>
 
                     <Button
                         android:id="@+id/viewDebtBtn"
@@ -94,21 +85,21 @@
                         android:layout_weight="1"
                         android:text="View Debts"
                         android:textColor="@color/white"
-                        android:backgroundTint="@color/blue"/>
+                        android:backgroundTint="#00B4D8"/>
 
                     <Button
                         android:id="@+id/paymentHistoryBtn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="View Payment History"
-                        android:backgroundTint="@color/blue"/>
+                        android:backgroundTint="#0096C7"/>
 
                     <Button
                         android:id="@+id/paymentCalculatorBtn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Calculate Payment"
-                        android:backgroundTint="@color/blue"/>
+                        android:backgroundTint="#0077B6"/>
 
                 </LinearLayout>
 

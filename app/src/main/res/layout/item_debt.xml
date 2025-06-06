@@ -54,8 +54,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Payment Entry"
-            android:backgroundTint="@color/green"
-            android:textColor="@color/black"/>
+            android:backgroundTint="#39e75f"
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/btnDelete"
@@ -64,7 +64,7 @@
             android:text="Delete"
             android:backgroundTint="@color/red"
             android:layout_marginStart="8dp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/white"/>
 
     </LinearLayout>
 </LinearLayout>

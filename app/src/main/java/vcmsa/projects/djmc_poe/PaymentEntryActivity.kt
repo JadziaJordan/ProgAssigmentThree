@@ -147,14 +147,14 @@ class PaymentEntryActivity : AppCompatActivity() {
             debtRef.get().addOnSuccessListener { documentSnapshot ->
                 if (documentSnapshot.exists()) {
                     val currentDebtAmount = documentSnapshot.getDouble("debtamt") ?: 0.0
-                    val currentInterest = documentSnapshot.getDouble("interest") ?: 0.0
+                    val currentInterest = documentSnapshot.getDouble("interestamt") ?: 0.0
                     var remainingPayment = paymentAmount
                     var newDebtAmount = currentDebtAmount
                     var newInterest = currentInterest
 
-                    if (currentDebtAmount > 0) {
-                        if (remainingPayment >= currentDebtAmount) {
-                            remainingPayment -= currentDebtAmount
+                    if (newDebtAmount > 0) {
+                        if (remainingPayment >= newDebtAmount) {
+                            remainingPayment -= newDebtAmount
                             newDebtAmount = 0.0
                         } else {
                             newDebtAmount -= remainingPayment
@@ -162,9 +162,9 @@ class PaymentEntryActivity : AppCompatActivity() {
                         }
                     }
 
-                    if (remainingPayment > 0 && currentInterest > 0) {
-                        if (remainingPayment >= currentInterest) {
-                            remainingPayment -= currentInterest
+                    if (remainingPayment > 0 && newInterest > 0) {
+                        if (remainingPayment >= newInterest) {
+                            remainingPayment -= newInterest
                             newInterest = 0.0
                         } else {
                             newInterest -= remainingPayment
@@ -172,41 +172,41 @@ class PaymentEntryActivity : AppCompatActivity() {
                         }
                     }
 
-                    // If both are now 0, delete the debt
-                    if (newDebtAmount == 0.0 && newInterest == 0.0) {
-                        debtRef.delete().addOnSuccessListener {
-                            Toast.makeText(this, "Debt fully paid off and deleted.", Toast.LENGTH_SHORT).show()
-                        }
-                    } else {
-                        // Otherwise, update the new values
-                        val updates = hashMapOf<String, Any>(
-                            "debtamt" to newDebtAmount,
-                            "interest" to newInterest
-                        )
-
-                        debtRef.update(updates)
-                            .addOnSuccessListener {
-                                Toast.makeText(this, "Payment processed successfully!", Toast.LENGTH_SHORT).show()
-                            }
-                            .addOnFailureListener { e ->
-                                Toast.makeText(this, "Update failed: ${e.message}", Toast.LENGTH_SHORT).show()
-                            }
-                    }
-
-                    // Log the payment
                     val paymentLog = hashMapOf(
                         "amount" to paymentAmount,
                         "timestamp" to Date(),
                         "debtId" to debtId
                     )
 
+                    // Log the payment
                     db.collection("users").document(userId)
                         .collection("payments")
                         .add(paymentLog)
 
-                    paymentAmountInput.text.clear()
-                    startActivity(Intent(this, ViewDebtActivity::class.java))
-                    finish()
+                    // Delete if fully paid
+                    if (newDebtAmount == 0.0 && newInterest == 0.0) {
+                        debtRef.delete().addOnSuccessListener {
+                            Toast.makeText(this, "Debt fully paid off and deleted.", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this, ViewDebtActivity::class.java))
+                            finish()
+                        }.addOnFailureListener {
+                            Toast.makeText(this, "Failed to delete debt: ${it.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        // Otherwise update
+                        val updates = hashMapOf<String, Any>(
+                            "debtamt" to newDebtAmount,
+                            "interestamt" to newInterest
+                        )
+                        debtRef.update(updates).addOnSuccessListener {
+                            Toast.makeText(this, "Payment processed successfully!", Toast.LENGTH_SHORT).show()
+                            paymentAmountInput.text.clear()
+                            startActivity(Intent(this, ViewDebtActivity::class.java))
+                            finish()
+                        }.addOnFailureListener {
+                            Toast.makeText(this, "Failed to update debt: ${it.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 } else {
                     Toast.makeText(this, "Debt record not found", Toast.LENGTH_SHORT).show()
                 }
