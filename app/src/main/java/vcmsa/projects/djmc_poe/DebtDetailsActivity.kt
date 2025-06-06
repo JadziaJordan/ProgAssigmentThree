@@ -27,6 +27,32 @@ class DebtDetailsActivity : AppCompatActivity() {
         }
 
         val CategoryButton = findViewById<Button>(R.id.categoryBtn)
+        val expensenav = findViewById<Button>(R.id.FinancialNav)
+        val graphsnav = findViewById<Button>(R.id.GraphesNav)
+        val debtnav = findViewById<Button>(R.id.DebtNav)
+        val categoriesnav = findViewById<Button>(R.id.CatNav)
+
+
+        expensenav.setOnClickListener {
+            startActivity(Intent(this, ViewAllExpenses::class.java))
+            finish()
+        }
+
+        graphsnav.setOnClickListener {
+            startActivity(Intent(this, ViewAllGoalsActivity::class.java))
+            finish()
+        }
+
+        debtnav.setOnClickListener {
+            startActivity(Intent(this, DebtTrackingActivity::class.java))
+            finish()
+        }
+
+        categoriesnav.setOnClickListener {
+            startActivity(Intent(this, ViewAllCategories::class.java))
+            finish()
+        }
+
         CategoryButton.setOnClickListener {
             startActivity(Intent(this, DebtCategoryActivity::class.java))
             finish()

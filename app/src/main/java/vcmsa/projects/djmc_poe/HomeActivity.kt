@@ -32,6 +32,16 @@ class HomeActivity : AppCompatActivity() {
         btnAddGoals.setOnClickListener {
             startActivity(Intent(this, ViewAllGoalsActivity::class.java))
         }
+
+        val logoutButton = findViewById<Button>(R.id.logoutBtn)
+
+        logoutButton.setOnClickListener {
+            val intent = Intent(this, LogoutActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+
     }
 
 }

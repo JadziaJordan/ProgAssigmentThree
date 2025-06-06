@@ -39,6 +39,35 @@ class DebtCategoryActivity : AppCompatActivity() {
         val debtCategoryEditText = findViewById<EditText>(R.id.etDebtCategoryname)
         val createButton = findViewById<Button>(R.id.createBtn)
         val backButton = findViewById<Button>(R.id.backBtn)
+        val expensenav = findViewById<Button>(R.id.FinancialNav)
+        val graphsnav = findViewById<Button>(R.id.GraphesNav)
+        val debtnav = findViewById<Button>(R.id.DebtNav)
+        val categoriesnav = findViewById<Button>(R.id.CatNav)
+
+        backButton.setOnClickListener {
+            startActivity(Intent(this, DebtTrackingActivity::class.java))
+            finish()
+        }
+
+        expensenav.setOnClickListener {
+            startActivity(Intent(this, ViewAllExpenses::class.java))
+            finish()
+        }
+
+        graphsnav.setOnClickListener {
+            startActivity(Intent(this, ViewAllGoalsActivity::class.java))
+            finish()
+        }
+
+        debtnav.setOnClickListener {
+            startActivity(Intent(this, DebtTrackingActivity::class.java))
+            finish()
+        }
+
+        categoriesnav.setOnClickListener {
+            startActivity(Intent(this, ViewAllCategories::class.java))
+            finish()
+        }
 
         createButton.setOnClickListener {
             val debtCategoryName = debtCategoryEditText.text.toString().trim()

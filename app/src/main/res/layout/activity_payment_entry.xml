@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,13 +8,16 @@
     android:background="@drawable/background"
     tools:context=".PaymentHistoryActivity">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="20dp"
-        app:cardBackgroundColor="@android:color/white">
+    <!-- Content Scroll (if needed) -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,50 +25,124 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-            <!-- Title -->
-
-            <TextView
-                android:id="@+id/loginText"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Payment Entry"
-                android:textAlignment="center"
-                android:textSize="36sp"
-                android:textStyle="bold"
-                />
+                android:layout_margin="30dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="20dp"
+                app:cardBackgroundColor="@android:color/white">
 
-            <EditText
-                android:id="@+id/editTextNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Payment Amount"
-                android:ems="10"
-                android:inputType="number" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
 
-            <Button
-                android:id="@+id/PaymentEntrybtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Enter Payment"
-                android:clickable="true"
-                android:focusable="true"
-                android:backgroundTint="@color/blue"
-                />
+                    <TextView
+                        android:id="@+id/loginText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Payment Entry"
+                        android:textAlignment="center"
+                        android:textSize="36sp"
+                        android:textStyle="bold" />
 
+                    <EditText
+                        android:id="@+id/editTextNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Payment Amount"
+                        android:ems="10"
+                        android:inputType="number" />
+
+                    <Button
+                        android:id="@+id/PaymentEntrybtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Enter Payment"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:backgroundTint="@color/blue" />
+
+                    <Button
+                        android:id="@+id/backBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:padding="8dp"
+                        android:text="Back"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:backgroundTint="@color/blue" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </ScrollView>
 
-    <Button
-        android:id="@+id/backBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:text="Back"
-        android:textSize="14sp"
-        android:textColor="@color/white"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="100dp"
-        android:backgroundTint="@color/blue"/>
+    <!-- Bottom Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="90dp"
+        android:background="@color/blue"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:weightSum="4"
+        android:gravity="center"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-</FrameLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/DebtNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:text="Debt Tracking"
+            android:textColor="@color/black"
+            app:icon="@drawable/goal"
+            app:iconGravity="top"
+            app:iconPadding="4dp" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/FinancialNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:text="Finance"
+            android:textColor="@color/black"
+            app:icon="@drawable/budget"
+            app:iconGravity="top"
+            app:iconPadding="4dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/CatNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:text="Category"
+            android:textColor="@color/black"
+            app:icon="@drawable/money"
+            app:iconGravity="top"
+            app:iconPadding="4dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/GraphesNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:text="Graphes"
+            android:textColor="@color/black"
+            app:icon="@drawable/img"
+            app:iconGravity="top"
+            app:iconPadding="4dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

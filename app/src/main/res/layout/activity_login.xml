@@ -23,9 +23,21 @@
             android:orientation="vertical"
             android:padding="24dp">
 
-            <!-- Title -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginBottom="24dp">
 
-
+                <ImageView
+                    android:id="@+id/homeImage"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:src="@drawable/djmc"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="DJMC Logo" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/loginText"
@@ -81,7 +93,7 @@
         android:textSize="14sp"
         android:textColor="@color/white"
         android:layout_gravity="center|bottom"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="50dp"
         android:backgroundTint="@color/blue"/>
 
 
