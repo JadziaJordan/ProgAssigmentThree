@@ -16,6 +16,12 @@ import java.util.*
 
 class ViewAllExpenses : AppCompatActivity() {
 
+
+//    refrences :
+//    >https://stackoverflow.com/questions/6578051/what-is-an-intent-in-android
+//    >https://stackoverflow.com/questions/61092782/understanding-firestore-queries
+//    https://stackoverflow.com/questions/32009863/best-way-to-create-a-navigation-bar
+
     private lateinit var etDateFrom: EditText
     private lateinit var etDateTo: EditText
     private lateinit var btnFilterRange: Button
@@ -60,6 +66,37 @@ class ViewAllExpenses : AppCompatActivity() {
         }
 
         loadAllExpenses()
+
+        val goalsNav: Button = findViewById(R.id.GoalsNav)
+        val financialNav: Button = findViewById(R.id.FinancialNav)
+        val debtNav: Button = findViewById(R.id.DebtNav)
+        val graphesNav: Button = findViewById(R.id.GraphesNav)
+
+        goalsNav.setOnClickListener {
+            val intent = Intent(this, DebtTrackingActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        financialNav.setOnClickListener {
+            val intent = Intent(this, AddExpense::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        debtNav.setOnClickListener {
+            val intent = Intent(this, ViewAllCategories::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        //change
+
+        graphesNav.setOnClickListener {
+            val intent = Intent(this, ViewAllExpenses::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun showDatePicker(editText: EditText) {

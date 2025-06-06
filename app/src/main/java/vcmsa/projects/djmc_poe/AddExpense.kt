@@ -21,6 +21,11 @@ import java.util.*
 
 class AddExpense : AppCompatActivity() {
 
+//    refrences :
+//    >https://stackoverflow.com/questions/6578051/what-is-an-intent-in-android
+//    >https://stackoverflow.com/questions/61092782/understanding-firestore-queries
+//    https://stackoverflow.com/questions/32009863/best-way-to-create-a-navigation-bar
+
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
 
@@ -34,7 +39,6 @@ class AddExpense : AppCompatActivity() {
     private lateinit var btnSelectImage: Button
     private lateinit var btnCaptureImage: Button
     private lateinit var btnSave: Button
-    private lateinit var btnBack: Button
 
     private var savedImageUri: Uri? = null
 
@@ -58,10 +62,9 @@ class AddExpense : AppCompatActivity() {
         btnSelectImage = findViewById(R.id.btnSelectImage)
         btnCaptureImage = findViewById(R.id.btnCaptureImage)
         btnSave = findViewById(R.id.buttonsave)
-
         spinnerCategory = findViewById(R.id.spinnerCategory)
-        loadCategories()
 
+        loadCategories()
 
         btnSelectImage.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
@@ -82,7 +85,35 @@ class AddExpense : AppCompatActivity() {
             saveExpense()
         }
 
-        btnBack.setOnClickListener {
+        // Navigation panel intents
+        val goalsNav: Button = findViewById(R.id.GoalsNav)
+        val financialNav: Button = findViewById(R.id.FinancialNav)
+        val debtNav: Button = findViewById(R.id.DebtNav)
+        val graphesNav: Button = findViewById(R.id.GraphesNav)
+
+        goalsNav.setOnClickListener {
+            val intent = Intent(this, DebtTrackingActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        financialNav.setOnClickListener {
+            val intent = Intent(this, AddExpense::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        debtNav.setOnClickListener {
+            val intent = Intent(this, ViewAllCategories::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        //change
+
+        graphesNav.setOnClickListener {
+            val intent = Intent(this, ViewAllExpenses::class.java)
+            startActivity(intent)
             finish()
         }
     }

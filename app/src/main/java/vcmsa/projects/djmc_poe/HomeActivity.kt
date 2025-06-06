@@ -18,7 +18,7 @@ class HomeActivity : AppCompatActivity() {
 
 
         btnViewExpenses.setOnClickListener {
-            startActivity(Intent(this, ViewAllExpenses::class.java))
+            startActivity(Intent(this, AddExpense::class.java))
         }
 
         btnViewCategories.setOnClickListener {
