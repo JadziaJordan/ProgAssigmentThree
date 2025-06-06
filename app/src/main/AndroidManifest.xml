@@ -13,6 +13,9 @@
         android:theme="@style/Theme.DJMC_POE"
         tools:targetApi="31">
         <activity
+            android:name=".AddGoals"
+            android:exported="false" />
+        <activity
             android:name=".ViewDebtActivity"
             android:exported="false" />
         <activity
@@ -30,6 +33,9 @@
         <activity android:name=".ViewAllCategories" />
         <activity
             android:name=".ViewAllExpenses"
+            android:exported="false" />
+        <activity
+            android:name=".ViewAllGoalsActivity"
             android:exported="false" />
         <activity
             android:name=".ExpenseAdapter"
