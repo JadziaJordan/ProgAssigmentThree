@@ -12,6 +12,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class DebtDetailsActivity : AppCompatActivity() {
 
+    /*	Read and write data on Android | Firebase Realtime Database. (n.d.). Firebase. https://firebase.google.com/docs/database/android/read-and-write */
+
     private lateinit var db: FirebaseFirestore
     private lateinit var auth: FirebaseAuth
 

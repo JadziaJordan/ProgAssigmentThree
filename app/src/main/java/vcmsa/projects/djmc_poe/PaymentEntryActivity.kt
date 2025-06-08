@@ -14,6 +14,8 @@ import java.util.*
 
 class PaymentEntryActivity : AppCompatActivity() {
 
+    /*	Read and write data on Android | Firebase Realtime Database. (n.d.). Firebase. https://firebase.google.com/docs/database/android/read-and-write */
+
     private lateinit var db: FirebaseFirestore
     private lateinit var auth: FirebaseAuth
 
@@ -68,65 +70,6 @@ class PaymentEntryActivity : AppCompatActivity() {
             startActivity(Intent(this, ViewAllCategories::class.java))
             finish()
         }
-
-//        paymentEntryButton.setOnClickListener {
-//            val paymentAmount = paymentAmountInput.text.toString().toDoubleOrNull()
-//
-//            if (paymentAmount == null || paymentAmount <= 0) {
-//                Toast.makeText(this, "Enter a valid payment amount", Toast.LENGTH_SHORT).show()
-//                return@setOnClickListener
-//            }
-//
-//            if (debtId == null) {
-//                Toast.makeText(this, "Debt not found", Toast.LENGTH_SHORT).show()
-//                return@setOnClickListener
-//            }
-//
-//            // Step 1: Get the debt document
-//            val debtRef = db.collection("users").document(userId)
-//                .collection("debtdetails").document(debtId)
-//
-//            debtRef.get().addOnSuccessListener { documentSnapshot ->
-//                if (documentSnapshot.exists()) {
-//                    val currentDebtAmount = documentSnapshot.getDouble("debtamt") ?: 0.0
-//                    val newDebtAmount = currentDebtAmount - paymentAmount
-//
-//                    // Step 2: Update debtamt in Firestore
-//                    debtRef.update("debtamt", newDebtAmount)
-//                        .addOnSuccessListener {
-//
-//
-//                            debtRef.update("debtamt", newDebtAmount)
-//                                .addOnSuccessListener {
-//                                    // Log payment under user's payments collection
-//                                    val payment = hashMapOf(
-//                                        "amount" to paymentAmount,
-//                                        "timestamp" to Date(),
-//                                        "debtId" to debtId
-//                                    )
-//
-//                                    db.collection("users")
-//                                        .document(userId)
-//                                        .collection("payments")
-//                                        .add(payment)
-//                                        .addOnSuccessListener {
-//                                            Toast.makeText(this, "Payment saved and debt updated!", Toast.LENGTH_SHORT).show()
-//                                            paymentAmountInput.text.clear()
-//                                        }
-//                                }
-//                                .addOnFailureListener { e ->
-//                                    Toast.makeText(this, "Payment saved, but failed to log payment: ${e.message}", Toast.LENGTH_LONG).show()
-//                                }
-//                        }
-//                        .addOnFailureListener { e ->
-//                            Toast.makeText(this, "Failed to update debt: ${e.message}", Toast.LENGTH_LONG).show()
-//                        }
-//                } else {
-//                    Toast.makeText(this, "Debt record not found", Toast.LENGTH_SHORT).show()
-//                }
-//            }.addOnFailureListener { e ->
-//                Toast.makeText(this, "Failed to fetch debt: ${e.message}", Toast.LENGTH_LONG).show()
-//            }
 
         paymentEntryButton.setOnClickListener {
             val paymentAmount = paymentAmountInput.text.toString().toDoubleOrNull()
