@@ -11,30 +11,25 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val btnViewExpenses = findViewById<Button>(R.id.buttonViewExpenses)
-        val btnDebtTracking = findViewById<Button>(R.id.buttonDebtTracking)
-        val btnViewCategories = findViewById<Button>(R.id.buttonViewCategories)
-        val btnViewGoals = findViewById<Button>(R.id.buttonViewGoals)
-        val btnViewGraph = findViewById<Button>(R.id.buttonViewGraph)
+        // Bottom Navigation
+        val goalsNav: Button = findViewById(R.id.GoalsNav)
+        val financialNav: Button = findViewById(R.id.FinancialNav)
+        val GraphesNav: Button = findViewById(R.id.GraphesNav)
+        val DebtNav: Button = findViewById(R.id.DebtNav)
 
-
-        btnViewExpenses.setOnClickListener {
-            startActivity(Intent(this, ViewAllExpenses::class.java))
-        }
-
-        btnViewCategories.setOnClickListener {
-            startActivity(Intent(this, ViewAllCategories::class.java))
-        }
-
-        btnDebtTracking.setOnClickListener {
+        goalsNav.setOnClickListener {
             startActivity(Intent(this, DebtTrackingActivity::class.java))
         }
 
-        btnViewGoals.setOnClickListener {
-            startActivity(Intent(this, ViewAllGoalsActivity::class.java))
+        financialNav.setOnClickListener {
+            startActivity(Intent(this, ViewAllExpenses::class.java))
         }
 
-        btnViewGraph.setOnClickListener {
+        DebtNav.setOnClickListener {
+            startActivity(Intent(this, ViewAllCategories::class.java))
+        }
+
+        GraphesNav.setOnClickListener {
             startActivity(Intent(this, Graph::class.java))
         }
 
