@@ -89,7 +89,7 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         android:padding="12dp"
-        android:weightSum="4"
+        android:weightSum="5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Debt Tracking"
+            android:text="Debt"
             android:textColor="@color/black"
             app:icon="@drawable/goal"
             app:iconGravity="top"
@@ -115,6 +115,18 @@
             android:text="Expense"
             android:textColor="@color/black"
             app:icon="@drawable/budget"
+            app:iconGravity="top"
+            app:iconPadding="4dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/HomeNav"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/blue"
+            android:text="Home"
+            android:textColor="@color/black"
+            app:icon="@drawable/homeimg"
             app:iconGravity="top"
             app:iconPadding="4dp" />
 

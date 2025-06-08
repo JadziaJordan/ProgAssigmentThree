@@ -71,11 +71,16 @@ class ViewAllExpenses : AppCompatActivity() {
         val financialNav: Button = findViewById(R.id.FinancialNav)
         val debtNav: Button = findViewById(R.id.DebtNav)
         val graphesNav: Button = findViewById(R.id.GraphesNav)
+        val home = findViewById<Button>(R.id.HomeNav)
 
         goalsNav.setOnClickListener {
             val intent = Intent(this, DebtTrackingActivity::class.java)
             startActivity(intent)
             finish()
+        }
+
+        home.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
         }
 
         financialNav.setOnClickListener {

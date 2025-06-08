@@ -60,6 +60,7 @@ class ViewAllCategories : AppCompatActivity() {
         val financialNav: Button = findViewById(R.id.FinancialNav)
         val GraphesNav: Button = findViewById(R.id.GraphesNav)
         val DebtNav: Button = findViewById(R.id.DebtNav)
+        val home = findViewById<Button>(R.id.HomeNav)
 
         goalsNav.setOnClickListener {
             startActivity(Intent(this, DebtTrackingActivity::class.java))
@@ -75,6 +76,10 @@ class ViewAllCategories : AppCompatActivity() {
 
         GraphesNav.setOnClickListener {
             startActivity(Intent(this, Graph::class.java))
+        }
+
+        home.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
         }
 
         loadCategories()
