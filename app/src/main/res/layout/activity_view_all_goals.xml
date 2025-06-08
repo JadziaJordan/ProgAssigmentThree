@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".ViewAllGoalsActivity">
 
 
@@ -56,14 +57,17 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Apply Filters" />
+                android:text="Apply Filters"
+                android:backgroundTint="@android:color/holo_blue_light" />
 
             <Button
                 android:id="@+id/buttonAddGoal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Add New Goal"/>
+                android:text="Add New Goal"
+                android:backgroundTint="@android:color/holo_blue_light" />
+
         </LinearLayout>
 
         <!-- RecyclerView for displaying goals -->

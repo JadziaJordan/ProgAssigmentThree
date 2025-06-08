@@ -8,6 +8,7 @@ data class GraphData(
 )
 
 data class Goal(
+    val category: String,
     val minGoal: Double,
     val maxGoal: Double
 )

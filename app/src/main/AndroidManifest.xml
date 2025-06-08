@@ -16,6 +16,9 @@
             android:name=".LogoutActivity"
             android:exported="false" />
         <activity
+            android:name=".Graph"
+            android:exported="false" />
+        <activity
             android:name=".AddGoals"
             android:exported="false" />
         <activity

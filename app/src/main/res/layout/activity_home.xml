@@ -120,6 +120,17 @@
                 android:fontFamily="sans-serif-medium" />
 
             <Button
+                android:id="@+id/buttonViewGraph"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View Graph"
+                android:backgroundTint="@color/blue"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="24dp"
+                android:padding="12dp"
+                android:fontFamily="sans-serif-medium" />
+
+            <Button
                 android:id="@+id/logoutBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

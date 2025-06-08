@@ -73,9 +73,9 @@ class DisplayCategoryTotals : AppCompatActivity() {
             startActivity(Intent(this, ViewAllCategories::class.java))
         }
 
-        //GraphesNav.setOnClickListener {
-           // startActivity(Intent(this, GraphActivity::class.java))
-        //}
+        GraphesNav.setOnClickListener {
+            startActivity(Intent(this, Graph::class.java))
+        }
 
     }
 

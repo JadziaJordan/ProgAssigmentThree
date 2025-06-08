@@ -98,7 +98,7 @@ class AddGoals : AppCompatActivity() {
     }
 
    fun drawBarChart(data: List<GraphData>) {
-       // TODO: Replace this with actual charting logic
+
        data.forEach {
            println("Drawing: ${it.category} | Total: ${it.total}, MinGoal: ${it.minGoal}, MaxGoal: ${it.maxGoal}")
        }
@@ -154,7 +154,7 @@ class AddGoals : AppCompatActivity() {
         }.addOnFailureListener {
             Toast.makeText(this, "Error retrieving goals document", Toast.LENGTH_LONG).show()
         }
-1
+
     }
     fun fetchGoalsForMonth(month: String, callback: (Map<String, Goal>) -> Unit) {
         val userId = auth.currentUser?.uid ?: return
@@ -167,13 +167,13 @@ class AddGoals : AppCompatActivity() {
         monthDocRef.get().addOnSuccessListener { doc ->
             if (doc.exists()) {
                 val goalsMap = doc.get("goals") as? Map<String, Map<String, Double>> ?: emptyMap()
-                // Map to your Goal data class
-                val goals = goalsMap.mapValues { (_, v) ->
-                    Goal(
-                        minGoal = v["minGoal"] ?: 0.0,
-                        maxGoal = v["maxGoal"] ?: 0.0
+                val goals = goalsMap.map { (category, values) ->
+                    category to Goal(
+                        category = category,
+                        minGoal = values["minGoal"] ?: 0.0,
+                        maxGoal = values["maxGoal"] ?: 0.0
                     )
-                }
+                }.toMap()
                 callback(goals)
             } else {
                 callback(emptyMap())
@@ -181,31 +181,48 @@ class AddGoals : AppCompatActivity() {
         }.addOnFailureListener {
             callback(emptyMap())
         }
-
-
     }
-    fun loadChartDataForMonth(month: String) {
-        fun fetchExpenseTotalsByMonth(month: String, callback: (Map<String, Double>) -> Unit) {
-            val userId = auth.currentUser?.uid ?: return
 
-            val monthDocRef = db.collection("users")
+    fun loadChartDataForMonth(month: String) {
+        val userId = auth.currentUser?.uid ?: return
+
+        // Step 1: Fetch goals
+        fetchGoalsForMonth(month) { goalsMap ->
+            // Step 2: Fetch expenses
+            db.collection("users")
                 .document(userId)
                 .collection("expenses")
-                .document(month)
+                .whereGreaterThanOrEqualTo("date", "$month-01")
+                .whereLessThanOrEqualTo("date", "$month-31")
+                .get()
+                .addOnSuccessListener { snapshot ->
+                    val expenseSums = mutableMapOf<String, Double>()
+                    for (doc in snapshot) {
+                        val category = doc.getString("category") ?: continue
+                        val amount = doc.getDouble("amount") ?: 0.0
+                        expenseSums[category] = expenseSums.getOrDefault(category, 0.0) + amount
+                    }
 
-            monthDocRef.get().addOnSuccessListener { doc ->
-                if (doc.exists()) {
-                    val totalsMap = doc.data as? Map<String, Double> ?: emptyMap()
-                    callback(totalsMap)
-                } else {
-                    callback(emptyMap())
+                    // Step 3: Build chart data
+                    val chartData = mutableListOf<GraphData>()
+                    for ((category, total) in expenseSums) {
+                        val goal = goalsMap[category]
+                        chartData.add(
+                            GraphData(
+                                category = category,
+                                total = total,
+                                minGoal = goal?.minGoal ?: 0.0,
+                                maxGoal = goal?.maxGoal ?: 0.0
+                            )
+                        )
+                    }
+
+                    // Step 4: Draw bar chart
+                    drawBarChart(chartData)
                 }
-            }.addOnFailureListener {
-                callback(emptyMap())
-            }
         }
-
     }
+
 
 
 }
