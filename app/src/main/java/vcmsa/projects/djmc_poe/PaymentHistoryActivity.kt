@@ -44,7 +44,7 @@ class PaymentHistoryActivity : AppCompatActivity() {
         }
 
         graphsnav.setOnClickListener {
-            startActivity(Intent(this, ViewAllGoalsActivity::class.java))
+            startActivity(Intent(this, Graph::class.java))
             finish()
         }
 

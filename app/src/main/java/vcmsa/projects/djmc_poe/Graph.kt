@@ -1,11 +1,13 @@
 package vcmsa.projects.djmc_poe
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import com.github.mikephil.charting.charts.BarChart
@@ -29,6 +31,28 @@ class Graph : AppCompatActivity() {
 
         barChart = findViewById(R.id.barChart)
         spinnerMonth = findViewById(R.id.spinnerMonth)
+
+        // Bottom Navigation
+        val goalsNav: Button = findViewById(R.id.GoalsNav)
+        val financialNav: Button = findViewById(R.id.FinancialNav)
+        val GraphesNav: Button = findViewById(R.id.GraphesNav)
+        val DebtNav: Button = findViewById(R.id.DebtNav)
+
+        goalsNav.setOnClickListener {
+            startActivity(Intent(this, DebtTrackingActivity::class.java))
+        }
+
+        financialNav.setOnClickListener {
+            startActivity(Intent(this, ViewAllExpenses::class.java))
+        }
+
+        DebtNav.setOnClickListener {
+            startActivity(Intent(this, ViewAllCategories::class.java))
+        }
+
+        GraphesNav.setOnClickListener {
+            startActivity(Intent(this, Graph::class.java))
+        }
 
         val userId = FirebaseAuth.getInstance().currentUser?.uid ?: run {
             Log.d("GraphDebug", "User not authenticated")

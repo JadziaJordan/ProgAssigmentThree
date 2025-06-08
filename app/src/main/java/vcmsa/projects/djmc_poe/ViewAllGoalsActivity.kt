@@ -39,6 +39,28 @@ class ViewAllGoalsActivity : AppCompatActivity() {
             startActivity(Intent(this, AddGoals::class.java))
         }
 
+        // Bottom Navigation
+        val goalsNav: Button = findViewById(R.id.GoalsNav)
+        val financialNav: Button = findViewById(R.id.FinancialNav)
+        val GraphesNav: Button = findViewById(R.id.GraphesNav)
+        val DebtNav: Button = findViewById(R.id.DebtNav)
+
+        goalsNav.setOnClickListener {
+            startActivity(Intent(this, DebtTrackingActivity::class.java))
+        }
+
+        financialNav.setOnClickListener {
+            startActivity(Intent(this, ViewAllExpenses::class.java))
+        }
+
+        DebtNav.setOnClickListener {
+            startActivity(Intent(this, ViewAllCategories::class.java))
+        }
+
+        GraphesNav.setOnClickListener {
+            startActivity(Intent(this, Graph::class.java))
+        }
+
         // Setup Date Pickers
         setupDatePicker(fromDate)
         setupDatePicker(toDate)

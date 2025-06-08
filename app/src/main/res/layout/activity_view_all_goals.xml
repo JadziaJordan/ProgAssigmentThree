@@ -8,78 +8,97 @@
     android:background="@drawable/background"
     tools:context=".ViewAllGoalsActivity">
 
+    <!-- CardView with Filters and Buttons -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewGoalFilters"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:elevation="8dp"
+        android:backgroundTint="@android:color/white"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <!-- Filter Section -->
-        <TextView android:text="Filter by Category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Spinner android:id="@+id/spinnerFilterCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView android:text="From Date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:id="@+id/editTextFromDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusable="false"/>
-
-        <TextView android:text="To Date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <EditText
-            android:id="@+id/editTextToDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:focusable="false"/>
-
-        <!-- Horizontal layout for both buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:weightSum="2">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <Button
-                android:id="@+id/buttonApplyFilters"
-                android:layout_width="0dp"
+            <TextView
+                android:text="Filter by Category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Spinner
+                android:id="@+id/spinnerFilterCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="From Date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/editTextFromDate"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Apply Filters"
-                android:backgroundTint="@android:color/holo_blue_light" />
+                android:focusable="false" />
 
-            <Button
-                android:id="@+id/buttonAddGoal"
-                android:layout_width="0dp"
+            <TextView
+                android:text="To Date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/editTextToDate"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Add New Goal"
-                android:backgroundTint="@android:color/holo_blue_light" />
+                android:focusable="false" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:weightSum="2">
+
+                <Button
+                    android:id="@+id/buttonApplyFilters"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Apply Filters"
+                    android:backgroundTint="@android:color/holo_blue_light" />
+
+                <Button
+                    android:id="@+id/buttonAddGoal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Add New Goal"
+                    android:backgroundTint="@android:color/holo_blue_light" />
+            </LinearLayout>
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-        <!-- RecyclerView for displaying goals -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewGoals"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+    <!-- RecyclerView outside the CardView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewGoals"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/cardViewGoalFilters"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-
-    </LinearLayout>
-    <!-- Fixed Bottom Navigation -->
+    <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"
@@ -91,8 +110,8 @@
         android:padding="12dp"
         android:weightSum="4"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/GoalsNav"
@@ -141,9 +160,6 @@
             app:icon="@drawable/img"
             app:iconGravity="top"
             app:iconPadding="4dp" />
-
     </LinearLayout>
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-

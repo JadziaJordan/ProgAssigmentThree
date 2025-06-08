@@ -69,7 +69,7 @@ class PaymentCalculatorActivity : AppCompatActivity() {
         }
 
         financialNav.setOnClickListener {
-            val intent = Intent(this, AddExpense::class.java)
+            val intent = Intent(this, ViewAllExpenses::class.java)
             startActivity(intent)
             finish()
         }
@@ -83,7 +83,7 @@ class PaymentCalculatorActivity : AppCompatActivity() {
         //change
 
         graphesNav.setOnClickListener {
-            val intent = Intent(this, ViewAllExpenses::class.java)
+            val intent = Intent(this, Graph::class.java)
             startActivity(intent)
             finish()
         }
