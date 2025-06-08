@@ -34,7 +34,7 @@
     <!-- Fixed Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottomNav"
-        android:layout_width="451dp"
+        android:layout_width="0dp"
         android:layout_height="90dp"
         android:background="@color/blue"
         android:elevation="8dp"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Goal"
+            android:text="Debt Tracking"
             android:textColor="@color/black"
             app:icon="@drawable/goal"
             app:iconGravity="top"

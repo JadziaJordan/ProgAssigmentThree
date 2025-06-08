@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
+// References
+//    >https://stackoverflow.com/questions/61092782/understanding-firestore-queries
+
 class ViewAllCategories : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
@@ -22,6 +25,7 @@ class ViewAllCategories : AppCompatActivity() {
 
     private lateinit var btnAddCategory: Button
     private lateinit var btnCategoryTotals: Button
+    private lateinit var btnViewGoals: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +34,7 @@ class ViewAllCategories : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerViewCategories)
         btnAddCategory = findViewById(R.id.btnAddCategory)
         btnCategoryTotals = findViewById(R.id.btnCategoryTotals)
+        btnViewGoals = findViewById(R.id.btnViewGoals)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = CategoryAdapter(categoryList) { position -> showDeleteDialog(position) }
@@ -46,6 +51,9 @@ class ViewAllCategories : AppCompatActivity() {
             startActivity(Intent(this, DisplayCategoryTotals::class.java))
         }
 
+        btnViewGoals.setOnClickListener {
+            startActivity(Intent(this, ViewAllGoalsActivity::class.java))
+        }
 
         // Bottom Navigation
         val goalsNav: Button = findViewById(R.id.GoalsNav)
@@ -54,7 +62,7 @@ class ViewAllCategories : AppCompatActivity() {
         val DebtNav: Button = findViewById(R.id.DebtNav)
 
         goalsNav.setOnClickListener {
-            startActivity(Intent(this, ViewAllGoalsActivity::class.java))
+            startActivity(Intent(this, DebtTrackingActivity::class.java))
         }
 
         financialNav.setOnClickListener {

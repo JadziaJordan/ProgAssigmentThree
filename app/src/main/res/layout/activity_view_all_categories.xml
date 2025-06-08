@@ -15,44 +15,69 @@
         android:layout_height="0dp"
         android:layout_margin="16dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/buttonContainer"
+        app:layout_constraintBottom_toTopOf="@+id/cardViewButtons"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Horizontal button container -->
-    <LinearLayout
-        android:id="@+id/buttonContainer"
+    <!-- CardView containing all buttons -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewButtons"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:padding="16dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        app:layout_constraintTop_toBottomOf="@id/recyclerViewCategories"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav">
 
-        <Button
-            android:id="@+id/btnAddCategory"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/blue"
-            android:textColor="@android:color/white"
-            android:text="Add Category" />
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center_horizontal">
 
-        <Button
-            android:id="@+id/btnCategoryTotals"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/blue"
-            android:textColor="@android:color/white"
-            android:text="View Category Totals" />
+            <!-- Horizontal button group -->
+            <LinearLayout
+                android:id="@+id/buttonContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="8dp">
 
-    </LinearLayout>
+                <Button
+                    android:id="@+id/btnAddCategory"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="@color/blue"
+                    android:textColor="@android:color/white"
+                    android:text="Add Category" />
+
+                <Button
+                    android:id="@+id/btnCategoryTotals"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/blue"
+                    android:textColor="@android:color/white"
+                    android:text="View Category Totals" />
+            </LinearLayout>
+
+            <!-- View Goals Button -->
+            <Button
+                android:id="@+id/btnViewGoals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/blue"
+                android:textColor="@android:color/white"
+                android:text="View Goals" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <!-- Bottom Navigation Bar -->
     <LinearLayout
@@ -75,8 +100,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Goal"
-            android:textColor="@android:color/white"
+            android:text="Debt Tracking"
+            android:textColor="@color/black"
             app:icon="@drawable/goal"
             app:iconGravity="top"
             app:iconPadding="4dp" />
@@ -88,7 +113,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
             android:text="Expense"
-            android:textColor="@android:color/white"
+            android:textColor="@color/black"
             app:icon="@drawable/budget"
             app:iconGravity="top"
             app:iconPadding="4dp" />
@@ -100,7 +125,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
             android:text="Category"
-            android:textColor="@android:color/white"
+            android:textColor="@color/black"
             app:icon="@drawable/money"
             app:iconGravity="top"
             app:iconPadding="4dp" />
@@ -112,7 +137,7 @@
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
             android:text="Graphes"
-            android:textColor="@android:color/white"
+            android:textColor="@color/black"
             app:icon="@drawable/img"
             app:iconGravity="top"
             app:iconPadding="4dp" />

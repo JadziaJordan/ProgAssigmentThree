@@ -7,6 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
+// References
+//    >https://stackoverflow.com/questions/61092782/understanding-firestore-queries
+
 class AddCategory : AppCompatActivity() {
 
     private lateinit var editTextCategoryName: EditText
@@ -69,7 +72,7 @@ class AddCategory : AppCompatActivity() {
         val DebtNav: Button = findViewById(R.id.DebtNav)
 
         goalsNav.setOnClickListener {
-            startActivity(Intent(this, ViewAllGoalsActivity::class.java))
+            startActivity(Intent(this, DebtTrackingActivity::class.java))
         }
 
         financialNav.setOnClickListener {

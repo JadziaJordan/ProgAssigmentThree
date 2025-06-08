@@ -12,6 +12,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import java.text.SimpleDateFormat
 import java.util.*
 
+// References
+//    >https://stackoverflow.com/questions/61092782/understanding-firestore-queries
+
 class DisplayCategoryTotals : AppCompatActivity() {
 
     private lateinit var buttonPickStart: Button
@@ -62,7 +65,7 @@ class DisplayCategoryTotals : AppCompatActivity() {
         val DebtNav: Button = findViewById(R.id.DebtNav)
 
         goalsNav.setOnClickListener {
-            startActivity(Intent(this, ViewAllGoalsActivity::class.java))
+            startActivity(Intent(this, DebtTrackingActivity::class.java))
         }
 
         financialNav.setOnClickListener {
