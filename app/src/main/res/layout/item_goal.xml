@@ -1,9 +1,12 @@
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_margin="8dp"
     android:layout_height="wrap_content"
     android:elevation="6dp"
-    android:padding="12dp">
+    android:padding="12dp"
+    app:cardBackgroundColor="@android:color/white">
 
     <LinearLayout
         android:orientation="vertical"
@@ -15,25 +18,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Month: " />
+            android:text=" Month: " />
 
         <TextView
             android:id="@+id/textViewCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Category: " />
+            android:text=" Category: " />
 
         <TextView
             android:id="@+id/textViewMinGoal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Min Goal: " />
+            android:text=" Min Goal: " />
 
         <TextView
             android:id="@+id/textViewMaxGoal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Max Goal: " />
+            android:text=" Max Goal: " />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

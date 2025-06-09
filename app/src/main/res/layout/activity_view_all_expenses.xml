@@ -47,7 +47,7 @@
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="1"
-                    android:hint="From Date (YYYY-MM-DD)"
+                    android:hint="From Date "
                     android:focusable="false"
                     android:clickable="true"
                     android:backgroundTint="#000000"
@@ -60,7 +60,7 @@
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:layout_weight="1"
-                    android:hint="To Date (YYYY-MM-DD)"
+                    android:hint="To Date"
                     android:focusable="false"
                     android:clickable="true"
                     android:backgroundTint="#000000"
@@ -132,7 +132,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Debt"
+
             android:textColor="@color/black"
             app:icon="@drawable/goal"
             app:iconGravity="top"
@@ -144,7 +144,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Expense"
+
             android:textColor="@color/black"
             app:icon="@drawable/budget"
             app:iconGravity="top"
@@ -156,7 +156,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Home"
+
             android:textColor="@color/black"
             app:icon="@drawable/homeimg"
             app:iconGravity="top"
@@ -168,7 +168,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Category"
+
             android:textColor="@color/black"
             app:icon="@drawable/money"
             app:iconGravity="top"
@@ -180,7 +180,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Graphes"
+
             android:textColor="@color/black"
             app:icon="@drawable/img"
             app:iconGravity="top"

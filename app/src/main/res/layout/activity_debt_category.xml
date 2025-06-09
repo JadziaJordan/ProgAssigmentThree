@@ -127,7 +127,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Debt Tracking"
+
             android:textColor="@color/black"
             app:icon="@drawable/goal"
             app:iconGravity="top"
@@ -139,7 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Expense"
+
             android:textColor="@color/black"
             app:icon="@drawable/budget"
             app:iconGravity="top"
@@ -151,7 +151,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Category"
+
             android:textColor="@color/black"
             app:icon="@drawable/money"
             app:iconGravity="top"
@@ -163,7 +163,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Graphes"
+
             android:textColor="@color/black"
             app:icon="@drawable/img"
             app:iconGravity="top"

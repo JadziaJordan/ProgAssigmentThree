@@ -1,86 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="vcmsa.projects.djmc_poe">
+
+    <!-- Required permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/ic_placeholder"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DJMC_POE"
         tools:targetApi="31">
-        <activity
-            android:name=".LogoutActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Graph"
-            android:exported="false" />
-        <activity
-            android:name=".AddGoals"
-            android:exported="false" />
-        <activity
-            android:name=".ViewDebtActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PaymentHistoryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PaymentEntryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".PaymentCalculatorActivity"
-            android:exported="false" /> <!-- Your existing activities -->
+
+        <!-- Activities -->
+        <activity android:name=".LogoutActivity" android:exported="false" />
+        <activity android:name=".Graph" android:exported="false" />
+        <activity android:name=".AddGoals" android:exported="false" />
+        <activity android:name=".ViewDebtActivity" android:exported="false" />
+        <activity android:name=".PaymentHistoryActivity" android:exported="false" />
+        <activity android:name=".PaymentEntryActivity" android:exported="false" />
+        <activity android:name=".PaymentCalculatorActivity" android:exported="false" />
         <activity android:name=".DisplayCategoryTotals" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".AddCategory" />
         <activity android:name=".ViewAllCategories" />
-        <activity
-            android:name=".ViewAllExpenses"
-            android:exported="false" />
-        <activity
-            android:name=".ViewAllGoalsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ExpenseAdapter"
-            android:exported="false" />
-        <activity
-            android:name=".AddExpense"
-            android:exported="false" />
-        <activity
-            android:name=".DebtCategoryActivity"
-            android:exported="false"
+        <activity android:name=".ViewAllExpenses" android:exported="false" />
+        <activity android:name=".ViewAllGoalsActivity" android:exported="false" />
+        <activity android:name=".ExpenseAdapter" android:exported="false" />
+        <activity android:name=".AddExpense" android:exported="false" />
+        <activity android:name=".DebtCategoryActivity" android:exported="false"
             android:theme="@style/Theme.DJMC_POE" />
-        <activity
-            android:name=".DebtDetailsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DebtTrackingActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false"
+        <activity android:name=".DebtDetailsActivity" android:exported="false" />
+        <activity android:name=".DebtTrackingActivity" android:exported="false" />
+        <activity android:name=".LoginActivity" android:exported="false"
             android:theme="@style/Theme.DJMC_POE" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+        <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- Add FileProvider here -->
+        </activity>
+
+        <!-- FileProvider for image saving and sharing -->
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.provider"
+            android:authorities="vcmsa.projects.djmc_poe.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
     </application>
 
 </manifest>

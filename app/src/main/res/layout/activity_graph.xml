@@ -1,36 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
     tools:context=".Graph">
 
+    <!-- CardView wrapping the main content -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
-
-        <!-- Spinner for month selection -->
-        <Spinner
-            android:id="@+id/spinnerMonth"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:minHeight="48dp" />
+            android:layout_height="match_parent"
+            android:padding="16dp">
 
-        <!-- MPAndroidChart bar chart -->
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/barChart"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"/>
-    </LinearLayout>
+            <!-- Spinner for month selection -->
+            <Spinner
+                android:id="@+id/spinnerMonth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:minHeight="48dp" />
+
+            <!-- MPAndroidChart bar chart -->
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChart"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
     <!-- Fixed Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottomNav"
@@ -52,7 +66,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Debt"
             android:textColor="@color/black"
             app:icon="@drawable/goal"
             app:iconGravity="top"
@@ -64,7 +77,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Expense"
             android:textColor="@color/black"
             app:icon="@drawable/budget"
             app:iconGravity="top"
@@ -76,7 +88,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Home"
             android:textColor="@color/black"
             app:icon="@drawable/homeimg"
             app:iconGravity="top"
@@ -88,7 +99,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Category"
             android:textColor="@color/black"
             app:icon="@drawable/money"
             app:iconGravity="top"
@@ -100,7 +110,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/blue"
-            android:text="Graphes"
             android:textColor="@color/black"
             app:icon="@drawable/img"
             app:iconGravity="top"
